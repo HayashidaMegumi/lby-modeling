@@ -58,6 +58,17 @@
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -76,19 +87,19 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a onClick="main.refresh()" href="javascript:void(0);">
+                        <a href="javascript:void(0);">
                             <i class="material-icons">loop</i>
                             <span>Refresh</span>
                         </a>
                     </li>
 					<li>
-                        <a onClick="main.forward()" href="javascript:void(0);">
+                        <a href="javascript:void(0);">
                             <i class="material-icons">arrow_upward</i>
                             <span>Forward</span>
                         </a>
                     </li>
 					<li>
-                        <a onClick="main.next()" href="javascript:void(0);">
+                        <a href="javascript:void(0);">
                             <i class="material-icons">arrow_downward</i>
                             <span>Next</span>
                         </a>
@@ -120,25 +131,25 @@
             </div>
             <div class="row clearfix">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          			<div class="card" id="vue">
+          			<div class="card">
                         <div class="header">
                             <h2>
-                                {{ message }}
+                                Basic <red> 123 </red>Card Title.
 								<small>Red is marked with the name of the company that needs to be analyzed.</small>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li>
-                                    <a @click="forward()" href="javascript:void(0);">
+                                    <a href="javascript:void(0);">
                                         <i class="material-icons">arrow_back</i>
                                     </a>
                                 </li>
 								<li>
-                                    <a @click="refresh()" href="javascript:void(0);">
+                                    <a href="javascript:void(0);">
                                         <i class="material-icons">loop</i>
                                     </a>
                                 </li>
 								<li>
-                                    <a @click="next()" href="javascript:void(0);">
+                                    <a href="javascript:void(0);">
                                         <i class="material-icons">arrow_forward</i>
                                     </a>
                                 </li>
@@ -150,7 +161,7 @@
 									<h4>竞争关系</h4>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-									<button type="button" class="btn bg-red btn-block btn-lg waves-effect" @click="judge('同业竞争/竞标')">同业竞争/竞标</button>
+									<button type="button" class="btn bg-red btn-block btn-lg waves-effect">同业竞争/竞标</button>
 								</div>
 							</div>
 							<div  class="row clearfix">
@@ -158,13 +169,13 @@
 									<h4>上游合作</h4>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-									<button type="button" class="btn bg-blue btn-block btn-lg waves-effect" @click="judge('供货方')">供货方</button>
+									<button type="button" class="btn bg-blue btn-block btn-lg waves-effect">供货方</button>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-									<button type="button" class="btn bg-blue btn-block btn-lg waves-effect" @click="judge('供应商')">供应商</button>
+									<button type="button" class="btn bg-blue btn-block btn-lg waves-effect">供应商</button>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-									<button type="button" class="btn bg-blue btn-block btn-lg waves-effect" @click="judge('代工厂')">代工厂</button>
+									<button type="button" class="btn bg-blue btn-block btn-lg waves-effect">代工厂</button>
 								</div>
 							</div>
 							<div  class="row clearfix">
@@ -172,13 +183,13 @@
 									<h4>下游合作</h4>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-									<button type="button" class="btn bg-cyan btn-block btn-lg waves-effect" @click="judge('供销商')">供销商</button>
+									<button type="button" class="btn bg-cyan btn-block btn-lg waves-effect">供销商</button>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-									<button type="button" class="btn bg-cyan btn-block btn-lg waves-effect" @click="judge('代理商')">代理商</button>
+									<button type="button" class="btn bg-cyan btn-block btn-lg waves-effect">代理商</button>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-									<button type="button" class="btn bg-cyan btn-block btn-lg waves-effect" @click="judge('分销商')">分销商</button>
+									<button type="button" class="btn bg-cyan btn-block btn-lg waves-effect">分销商</button>
 								</div>
 							</div>
 							<div  class="row clearfix">
@@ -186,7 +197,7 @@
 									<h4>其他</h4>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-									<button type="button" class="btn bg-orange btn-block btn-lg waves-effect" @click="judge('其他形式无关系')">其他形式无关系</button>
+									<button type="button" class="btn bg-orange btn-block btn-lg waves-effect">其他形式无关系</button>
 								</div>
 							</div>
                         </div>
@@ -215,52 +226,11 @@
     <!-- Wait Me Plugin Js -->
     <script src="plugins/waitme/waitMe.js"></script>
 
-    <!-- VUE -->
-    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/cards/basic.js"></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
-
-    <!-- js code -->
-    <script>
-        var main = new Vue({
-            el: '#vue',
-            data: {
-                message: "hello taodajiang. ",
-                relationship: ""
-            },
-            methods: {
-                post: function() {
-                    alert("post")
-                    //发送 post 请求
-                    // this.$http.post('/try/ajax/demo_test_post.php',{name:"菜鸟教程",url:"http://www.runoob.com"},{emulateJSON:true}).then(function(res){
-                    //     document.write(res.body);    
-                    // },function(res){
-                    //     console.log(res.status);
-                    // });
-                },
-                next: function() {
-                    alert("next")
-                    this.judge("我不确定，过")
-                },
-                forward: function() {
-                    alert("forward")
-                },
-                refresh: function() {
-                    location.reload()
-                },
-                judge: function(t) {
-                    relationship = t
-                    alert(relationship)
-                    this.post()
-                }
-            }
-        })
-    </script>
 </body>
 </html>
